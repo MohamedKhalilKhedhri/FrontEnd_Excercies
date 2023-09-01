@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            background-color: rgba(220, 220, 220, 0.578);
+        }
+        
+        .attribution {
+            font-size: 11px;
+            text-align: center;
+        }
+        
+        .attribution a {
+            color: hsl(228, 45%, 44%);
+        }
+        
+        .agecard {
+            width: 800px;
+            height: 600px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 50px;
+            border-bottom-right-radius: 30%;
+            overflow: hidden;
+        }
+        
+        .birthInput {
+            display: flex;
+        }
+        
+        .birthInput>div {
+            margin-right: 50px;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+        }
+        
+        .birthInput input {
+            width: 100px;
+            height: 30px;
+            padding-left: 10px;
+            font-weight: bolder;
+            font-size: 25px;
+        }
+        
+        .calc {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+        }
+        
+        .ligne {
+            flex: 1;
+            height: 1px;
+            background-color: black;
+        }
+        
+        .sub {
+            width: 75px;
+            height: 75px;
+            background-color: rgba(137, 43, 226, 0.786);
+            border: 0;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+        }
+        
+        .showage>h1 {
+            font-size: 100px;
+        }
+        
+        .a {
+            color: rgba(137, 43, 226, 0.786);
+        }
+        
+        .req {
+            font-size: 11px;
+            color: red;
+            display: none;
+        }
+        
+        .inv {
+            font-size: 11px;
+            color: red;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="agecard">
+        <div class="birthInput">
+
+            <div class="day" id="dl">
+                <label for="day">Day</label>
+                <input type="number" name="" id="day">
+                <p class="req">this field is required</p>
+                <p class="inv">invalid date</p>
+            </div>
+
+            <div class="month">
+                <label for="month" id="ml">Month</label>
+                <input type="number" name="" id="month">
+                <p class="req">this field is required</p>
+                <p class="inv">invalid date</p>
+            </div>
+
+            <div class="year">
+                <label for="year" id="yl">Year</label>
+                <input type="number" name="" id="year">
+                <p class="req">this field is required</p>
+                <p class="inv">invalid date</p>
+            </div>
+        </div>
+        <div class="calc">
+            <span class="ligne"></span>
+            <button class="sub material-symbols-outlined">expand_more</button>
+        </div>
+
+        <div class="showage">
+
+            <h1 class="y"> <span class="a">- -</span> Years</h1>
+            <h1 class="m"> <span class="a">- -</span> Months</h1>
+            <h1 class="d"> <span class="a">- -</span> Days</h1>
+        </div>
+    </div>
+
+    <div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded by <a href="#">Mohamed Khalil</a>.
+    </div>
+
+    <script>
+        let daylable = document.querySelector("#dl");
+        let Monlable = document.querySelector("#ml");
+        let Yelabel = document.querySelector("#yl");
+        let req = document.querySelectorAll(".req");
+        let inv = document.querySelectorAll(".inv");
+        let sub = document.querySelector(".sub");
+
+        function isLeapYear(year) {
+            if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validYear(year) {
+            const currentYear = new Date().getFullYear();
+            if (year >= 1950 && year <= currentYear) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validMonth(month) {
+            if (month >= 1 && month <= 12) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function validDay(day) {
+            if (day >= 1 && day <= 31) {
+                return true;
+            } else {
+                return false
+            }
+        }
+
+        function validDayMonthYear(year, month, day) {
+            if (month === 1 || month === 3 || month === 5 || month === 7 || month == 8 || month === 10 || month === 12) {
+                if (day >= 1 && day <= 31) {
+                    return true;
+                } else {
+                    return false
+                }
+            } else if (month === 2) {
+                if (isLeapYear(year)) {
+                    if (day >= 1 && day <= 29) {
+                        return true;
+                    } else {
+                        inv[0].style.display = "block";
+                        return false;
+                    }
+                } else {
+                    if (day >= 1 && day <= 28) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+
+                }
+            } else if (month === 4 || month === 6 || month === 9 || month === 11) {
+
+                if (day >= 1 && day <= 30) {
+                    return true;
+                } else {
+                    return false
+                }
+            } else {
+                return false;
+            }
+        }
+        sub.addEventListener("click", () => {
+
+            let dayIn = document.querySelector("#day");
+            let MonIn = document.querySelector("#month");
+            let YeIn = document.querySelector("#year");
+
+            let day = parseInt(dayIn.value);
+            let month = parseInt(MonIn.value);
+            let year = parseInt(YeIn.value);
+
+            if (validDayMonthYear(year, month, day) && validDay(day) && validMonth(month) && validYear(year)) {
+                // Reset styles to normal
+                daylable.style.color = "black";
+                Monlable.style.color = "black";
+                Yelabel.style.color = "black";
+                req.forEach((e) => e.style.display = 'none');
+                inv.forEach((e) => e.style.display = 'none');
+
+
+                let birthday = new Date(year, (month - 1), day);
+                let n = Date.now();
+                let ageMill = n - birthday;
+                // Convert milliseconds to years, months, and days
+                let ageDate = new Date(ageMill);
+                let ageYears = ageDate.getUTCFullYear() - 1970;
+                let ageMonths = ageDate.getUTCMonth();
+                let ageDays = ageDate.getUTCDate() - 1;
+
+                // Display the calculated age in the <span> elements
+                document.querySelector(".y .a").textContent = ageYears;
+                document.querySelector(".m .a").textContent = ageMonths;
+                document.querySelector(".d .a").textContent = ageDays;
+            } else {
+                // Highlight and display error messages
+                if (!validDay(day) || !validDayMonthYear(year, month, day)) {
+                    daylable.style.color = "red";
+                    inv[0].style.display = 'block';
+                    req[0].style.display = 'none';
+                } else {
+                    daylable.style.color = "black";
+                    inv[0].style.display = 'block';
+                    req[0].style.display = 'none';
+                    console.log("wrong");
+                }
+
+                if (!validMonth(month)) {
+                    Monlable.style.color = "red";
+                    inv[1].style.display = 'block';
+                    req[1].style.display = 'none';
+                } else {
+                    Monlable.style.color = "black";
+                    inv[1].style.display = 'none';
+                    req[1].style.display = 'none';
+                }
+
+                if (!validYear(year)) {
+                    Yelabel.style.color = "red";
+                    inv[2].style.display = 'block';
+                    req[2].style.display = 'none';
+                } else {
+                    Yelabel.style.color = "black";
+                    inv[2].style.display = 'none';
+                    req[2].style.display = 'none';
+                }
+
+            }
+            if (dayIn.value === "") {
+                daylable.style.color = "red";
+                req[0].style.display = 'block';
+                inv[0].style.display = 'none';
+
+
+            }
+            if (YeIn.value === "") {
+                Yelabel.style.color = "red";
+                req[2].style.display = 'block';
+                inv[2].style.display = 'none';
+            }
+            if (MonIn.value === "") {
+                Monlable.style.color = "red";
+                req[1].style.display = 'block';
+                inv[1].style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
