@@ -1,0 +1,729 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 300px;
+    height: 100vh;
+    background-color: #fff;
+    transition: .5s;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+aside ul {
+    position: relative;
+    height: 100vh;
+}
+
+
+/****clicking btn change aside width**/
+
+aside.active {
+    width: 80px;
+}
+
+aside ul li {
+    position: relative;
+}
+
+
+/**********li on click change background and rounded edges****/
+
+aside ul li.active {
+    background-color: #f0f0f0;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+
+/********active class for the  rounded edge of the aside*******/
+
+aside ul li.active::before {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    top: -20px;
+    border-bottom-right-radius: 20px;
+    right: 0;
+    background-color: transparent;
+    box-shadow: 5px 5px 0px 5px #f0f0f0;
+}
+
+aside ul li.active::after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    bottom: -20px;
+    border-top-right-radius: 20px;
+    right: 0;
+    background-color: transparent;
+    box-shadow: 5px -5px 0px 5px #f0f0f0;
+}
+
+
+/********/
+
+aside ul li.logo {
+    margin-bottom: 50px;
+}
+
+aside ul li.logo .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+aside ul li.logo .icon img {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+aside ul li.logo .text {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: black;
+}
+
+aside ul li button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+aside ul li a,
+aside ul li button {
+    position: relative;
+    white-space: nowrap;
+    display: flex;
+}
+
+aside ul li .icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 70px;
+    font-size: 1.5em;
+    color: #333;
+    transition: .5s;
+    z-index: 1;
+    padding-left: 10px;
+}
+
+aside ul li.active .icon::before {
+    position: absolute;
+    content: "";
+    inset: 5px;
+    background-color: var(--bg);
+    border-radius: 50%;
+    width: 60px;
+    transition: .5s;
+    z-index: -1;
+}
+
+aside ul li.active:hover .icon::before {
+    background-color: white;
+}
+
+aside ul li .text {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    font-size: 1em;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    transition: .5s;
+    margin-left: 10px;
+}
+
+aside ul li.active .text {
+    color: var(--bg);
+}
+
+aside ul li:hover .icon,
+aside ul li:hover .text {
+    color: var(--bg);
+}
+
+.menuToggle {
+    position: fixed;
+    right: 10px;
+    top: 20px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.258);
+    cursor: pointer;
+    padding: 1px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 998;
+}
+
+.menuToggle>span {
+    display: block;
+    width: 80%;
+    height: 2px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: 0.4s;
+}
+
+.changeToggleMenu span:nth-child(1) {
+    transform: translate(0, 5px) rotate(-45deg);
+}
+
+.changeToggleMenu span:nth-child(2) {
+    opacity: 0;
+}
+
+.changeToggleMenu span:nth-child(3) {
+    transform: translate(0, -10px) rotate(45deg);
+}
+
+
+/*END OF SIDE BAR CSSING*/
+
+.slider {
+    /*styling slider container*/
+    width: 90%;
+    margin: 30px auto;
+    height: 400px;
+    position: relative;
+    /*styling the dots*/
+}
+
+.slider .slides {
+    /*styling my slides*/
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider .slides .slide {
+    /*styling each slide*/
+    flex: 0 0 100%;
+    height: 400px;
+    position: relative;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.slider .slides .slide img {
+    /*slide img*/
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+}
+
+.slider .slides .slide .pubcontent {
+    /*the pubcontent in each slide*/
+    position: absolute;
+    bottom: 75px;
+    left: 50px;
+    background-color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 10px 25px;
+    display: flex;
+    max-width: 500px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.slider .dots,
+.slider .idots {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    border-radius: 50px;
+    left: 20px;
+}
+
+.slider .dots .dot,
+.slider .idots .idot {
+    margin: 5px 10px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px black;
+}
+
+.slider .idots .idot {
+    opacity: 0;
+}
+
+
+/*end styling dots*/
+
+
+/* opacity animation after sliding*/
+
+@keyframes fade {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/** end slider ******/
+
+
+/***** population*****/
+
+.population {
+    width: 90%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.population>div {
+    width: 30%;
+    background-color: white;
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    ;
+}
+
+.population>div i {
+    font-size: 50px;
+}
+
+.mainbody {
+    background-color: #f0f0f0;
+    width: calc(100vw - 300px);
+    margin-left: 300px;
+    transition: .5s;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.mainbody .homesection {
+    position: relative;
+    padding-top: 10px;
+}
+
+.StatSection,
+.obSection,
+.Cvsection {
+    position: relative;
+    margin-top: 250px;
+}
+
+.mycharts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin: 50px auto;
+    gap: 20px;
+}
+
+.mysmallcharts {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.firstchart {
+    background-color: rgb(255, 255, 255);
+    padding: 40px 10px 10px;
+    width: 30%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.secondchart {
+    width: 70%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.obSection,
+.Cvsection {
+    width: 100%;
+}
+
+.cvcontent {
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+
+/****can be deleted to change**/
+
+.openphoto {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    gap: 10px;
+    transition: .2s ease-in-out;
+    transform: scale(0);
+}
+
+.openphoto .imgshown {
+    position: relative;
+    width: 60%;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.openphoto .imgshown img {
+    position: absolute;
+    width: 100%;
+    height: auto;
+}
+
+.imgshown ::-webkit-scrollbar {
+    width: 12px;
+    /* Width of the scrollbar */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Background color of the scrollbar track */
+}
+
+.imgshown ::-webkit-scrollbar-thumb {
+    /* Color of the scrollbar thumb */
+    border-radius: 6px;
+    /* Rounded corners for the scrollbar thumb */
+}
+
+.openphoto .next,
+.prev {
+    padding: 30px;
+    font-size: 50px;
+    background-color: white;
+    border: 0;
+    cursor: pointer;
+}
+
+.closeimg {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 40px;
+    color: rgb(249, 249, 249);
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.openphoto .next {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+}
+
+.openphoto .prev {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+
+/**************/
+
+.cvcontent .cvBlock {
+    width: 30%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cvcontent .cvBlock .cvicon {
+    align-self: flex-end;
+    font-size: 50px;
+}
+
+.cvcontent .cvBlock .cvBinfo .showcv {
+    margin-top: 30px;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.cvcontent .cvBlock .cvBinfo .showcv:hover {
+    background-color: black;
+    color: white;
+}
+
+.obcontent {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.firstxt,
+.secondtxt {
+    border-radius: 20px;
+    padding: 30px;
+    width: 500px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.linechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding-top: 10px;
+}
+
+.linkshead,
+.dischead,
+.obhead,
+.cvhead {
+    margin: 0 auto;
+    width: 90%;
+    color: rgb(0, 0, 0);
+    transition: .5s ease-in;
+}
+
+
+/**changing headers color whene scroll in*/
+
+.linkshead[data-scroll="in"] {
+    color: #5398FE;
+}
+
+.dischead[data-scroll="in"] {
+    color: #63F27D;
+}
+
+.obhead[data-scroll="in"] {
+    color: #F77FBE;
+}
+
+.cvhead[data-scroll="in"] {
+    color: #FFA500;
+}
+
+
+/* Style the main scrollbar track */
+
+.mainbody::-webkit-scrollbar {
+    width: 0px;
+    /* Set the width of the scrollbar */
+}
+
+.scroll {
+    position: fixed;
+    right: 2px;
+    transform: translateY(-50%);
+    top: 50%;
+    display: flex;
+    width: 30px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 5px;
+}
+
+.scroll::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: calc(100% - 40px);
+    background-color: rgba(0, 0, 0, 0.222);
+    z-index: 1;
+}
+
+.scroll>span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: .5s ease-in-out;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+@media only screen and (max-width: 1300px) {
+    .population {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .population>div {
+        width: 100%;
+    }
+    .obcontent {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .obcontent>div {
+        width: 100%;
+    }
+    .mysmallcharts {
+        flex-direction: column;
+        gap: 50px;
+    }
+    .firstchart {
+        width: 100%;
+    }
+    .secondchart {
+        width: 100%;
+    }
+    .mycharts {
+        gap: 50px;
+    }
+    .scroll {
+        display: none;
+    }
+    /*** responsive slider **/
+    .slider {
+        height: auto;
+    }
+    .slider .slides {
+        width: 100%;
+        overflow: visible;
+    }
+    .slider .slides .slide {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+        gap: 20px;
+    }
+    .slider .slides .slide img {
+        height: 500px;
+    }
+    .slider .slides .slide .pubcontent {
+        position: static;
+        width: 100%;
+        min-height: 300px;
+        justify-content: center;
+        max-width: none;
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slider .dots,
+    .slider .idots {
+        left: 90%;
+        top: 10px;
+        flex-direction: column;
+    }
+    .openphoto .imgshown {
+        height: 50%;
+    }
+    .cvcontent .cvBlock {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .mainbody {
+        margin: 80px 0;
+        width: 100%;
+    }
+    aside {
+        padding-left: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 80px;
+        background-color: #fff;
+        transition: .5s;
+        padding-left: 0;
+        overflow: hidden;
+    }
+    aside ul {
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+    aside ul li {
+        /* Display the menu items as inline-block */
+        margin-right: 10px;
+        /* Add some spacing between menu items */
+    }
+    aside ul .MenuList {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+    }
+    aside ul li.logo .icon {
+        display: none;
+    }
+    aside ul li .text {
+        display: none;
+    }
+    .cvcontent .cvBlock {
+        width: 100%;
+    }
+    /* Additional styles for the mobile menu icon (you can customize this part) */
+}

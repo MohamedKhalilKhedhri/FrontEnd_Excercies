@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./fav.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://unpkg.com/scroll-out/dist/scroll-out.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://kit.fontawesome.com/371c3c4d66.js" crossorigin="anonymous"></script>
+    <title>Observatoire</title>
+
+    <link rel="stylesheet" href="./nothing.css">
+
+
+</head>
+
+<body>
+    <div class="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </div>
+    <aside>
+
+        <ul>
+
+            <li class="logo" style="--bg:#333;">
+                <a href="#">
+                    <div class="icon"> <img src="./fav.png" alt=""></div>
+                    <div class="text">Observatoire isims</div>
+                </a>
+            </li>
+
+            <div class="MenuList">
+
+
+                <li style="--bg:#5398FE;" class="active">
+                    <a href="#home">
+                        <div class="icon "><span class="material-symbols-outlined ">
+                            home
+                            </span></div>
+                        <div class="text ">Home</div>
+                    </a>
+
+
+                </li>
+                <li style="--bg:#F77FBE; ">
+                    <a href="#ob">
+                        <div class="icon "><span class="material-symbols-outlined ">
+                            article
+                            </span></div>
+                        <div class="text ">Observation</div>
+                    </a>
+                </li>
+
+                <li style="--bg:#63F27D; ">
+                    <a href="#stat">
+                        <div class="icon "><span class="material-symbols-outlined ">
+                            equalizer
+                            </span></div>
+                        <div class="text ">Statistics</div>
+                    </a>
+                </li>
+                <li style="--bg:#FFA500; ">
+                    <a href="#cv">
+                        <div class="icon ">
+                            <span class="material-symbols-outlined cvicon">
+                                feed
+                                </span>
+                        </div>
+                        <div class="text ">Les Cvs</div>
+                    </a>
+                </li>
+
+
+
+                <!-- this Li for connecting -->
+                <li>
+                    <button class="connextion" href="#">
+                        <div class="icon " style="--bg:#8250E5; "><span class="material-symbols-outlined ">
+                            login
+                            </span></div>
+                        <div class="text " style="--bg:#8250E5 ">Login</div>
+                    </button>
+                </li>
+                <!--  -->
+            </div>
+        </ul>
+    </aside>
+
+    <div class="mainbody">
+        <div class="homesection">
+            <h1 class="linkshead" id="home">Home</h1>
+            <div class="slider">
+                <div class="slides">
+                    <div class="slide">
+                        <img src="./isims.jpg" alt="">
+                        <div class="pubcontent">
+                            <h2>Isims</h2>
+                            <p>Est un établissement de l'enseignement supérieur tunisien basé au sein du pôle technologie de Sakiet Ezzit près de Sfax. Créé à la suite du décret présidentiel du 14 août 2001, il est spécialisé dans les domaines de l'informatique
+                                et du multimédia.</p>
+
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./320236925_687973689473249_7110021926915350275_n.jpg" alt="">
+                        <div class="pubcontent">
+                            <h2>ISIMSIAN</h2>
+                            <p>L'ISIMS n'est pas seulement un lieu d'études, c'est aussi un endroit agréable et divertissant pour passer du temps. C'est un lieu où l'apprentissage se mêle au plaisir.</p>
+
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <img src="./isims.jpg" alt="">
+                        <div class="pubcontent">
+                            <h2>Zag Zag</h2>
+                            <p>kolim dos ros fos pos world of warcraf</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="idots">
+                    <input type="radio" name="idott" id="idot" class="idot" checked>
+                    <input type="radio" name="idott" id="idot" class="idot">
+                    <input type="radio" name="idott" id="idot" class="idot">
+                </div>
+            </div>
+
+            <div class="population">
+
+                <div class="popNow">
+                    <div class="popInfo">
+                        <h1>Pepole Studying</h1>
+                        <p data-count="500">2000</p>
+                    </div>
+                    <i class="fa-solid fa-person"></i>
+                </div>
+                <div class="popAll">
+                    <div class="popInfo">
+                        <h1>Pepole Studied</h1>
+                        <p data-count="2000">2000</p>
+                    </div>
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <div class="NbrDiplome">
+                    <div class="popInfo">
+                        <h1>Pepole Graduated</h1>
+                        <p data-count="1000">1212</p>
+                    </div>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+            </div>
+        </div>
+        <div class="obSection">
+            <h1 class="obhead" id="ob">Observation</h1>
+            <div class="obcontent">
+                <div class="firstxt">
+                    <h1> Mission De l'observation</h1>
+                    <p>Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, dicta, accusantium adipisci temporibus nulla eveniet sed voluptates aliquid libero officiis expedita praesentium! Velit officiis praesentium repellat
+                        sunt eius laudantium doloribus.sit amet consectetur adipisicing elit. Culpa quibusdam ab quo ratione vitae non eos sequi amet iure veritatis. Iure, corporis similique! Rerum fugit quod dolorum numquam eveniet totam.</p>
+                </div>
+                <div class="secondtxt">
+                    <h1>Méthodologie</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicin Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, autem nisi voluptates, asperiores nesciunt atque mollitia laudantium alias est debitis, ratione delectus iste porro!
+                        Molestiae nostrum corporis doloremque veritatis similique!g elit. Ad impedit consectetur, nostrum ipsa nemo non possimus facere cumque aliquam earum. Aperiam culpa nemo dignissimos reiciendis suscipit atque, porro officia dolorem.</p>
+                </div>
+            </div>
+        </div>
+        <div class="StatSection">
+
+            <h1 class="dischead" id="stat">Statistics</h1>
+            <div class="mycharts">
+                <div class="mysmallcharts">
+                    <div class="firstchart chr">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                    <div class="secondchart chr">
+                        <canvas id="mysChart"></canvas>
+                    </div>
+
+                </div>
+                <div class="linechart chr">
+                    <canvas id="myPChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+        <div class="Cvsection">
+            <h1 class="cvhead" id="cv">Our Cv Collection</h1>
+            <div class="cvcontent">
+
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                        <!-- you may delete the img tag if u will use database to put cvs put them into js  file in 
+                        form of table than each column we can iterate foreach cvBook we have if click in button display the image
+                        have same order like our divs ( 3rd div will have an img with src of the 3 image saved in the table means table[2])
+                    -->
+                    </div>
+
+
+                </div>
+
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+                <div class="cvBlock">
+                    <span class="material-symbols-outlined cvicon">
+                        feed
+                        </span>
+                    <div class="cvBinfo">
+                        <h1 class="student_name">Dragonpoo</h1>
+                        <p class="dateDmise">2011-2012</p>
+                        <button class="showcv">View Cv</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- scroll circles -->
+        <div class="scroll">
+            <span class="fs" style="background-color: #5398FE;"></span>
+            <span class="ss"></span>
+            <span class="ts"></span><span class="fs"></span>
+        </div>
+    </div>
+    <div class="openphoto">
+        <button class="closeimg">X</button>
+        <button class="prev"><</button>
+        <div class="imgshown"> <img src=" " alt="an image supposed be here"></div>
+        <button class="next">></button>
+    </div>
+
+    <script src="https://unpkg.com/scrollreveal "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.2.0/chartjs-plugin-datalabels.min.js " integrity="sha512-JPcRR8yFa8mmCsfrw4TNte1ZvF1e3+1SdGMslZvmrzDYxS69J7J49vkFL8u6u8PlPJK+H3voElBtUCzaXj+6ig==" crossorigin=" anonymous
+                " referrerpolicy="no-referrer "></script>
+    <script src="./index.js "></script>
+
+</body>
+
+
+
+
+</html>
