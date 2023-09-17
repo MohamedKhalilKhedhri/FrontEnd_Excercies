@@ -677,14 +677,10 @@ aside ul li:hover .text {
         height: 50%;
     }
     .cvcontent .cvBlock {
-        width: 50%;
-    }
-}
-@media only screen and (max-width: 1000px) {
-    .cvcontent .cvBlock {
         width: 45%;
     }
 }
+
 @media only screen and (max-width: 800px) {
     .mainbody {
         margin: 80px 0;
