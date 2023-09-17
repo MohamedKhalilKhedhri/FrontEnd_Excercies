@@ -10,6 +10,10 @@ let scroll = document.querySelectorAll(".scroll span");
 window.addEventListener('load', function() {
     // Scroll to the top of the page
     window.scrollTo(0, 0);
+       if (this.innerWidth < 800) {
+
+        links.forEach((e) => { e.classList.remove("active") })
+    }
 });
 
 
@@ -49,7 +53,9 @@ function redisign() {
 
             const linkColor = getComputedStyle(e).getPropertyValue("--bg");
             if (allowClick) {
-                e.classList.add("active");
+                if (window.innerWidth > 800) {
+                    e.classList.add("active");
+                }
             }
             scroll[i].style.backgroundColor = linkColor;
 
