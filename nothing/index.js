@@ -1,8 +1,8 @@
 let MenuIcon = document.querySelector(".menuToggle");
 let links = document.querySelectorAll("aside ul .MenuList li:not(:last-child)");
 let content = document.querySelector(".mainbody");
-let scroll = document.querySelectorAll(".scroll span");
 
+let allowClick = true;
 
 
 
@@ -11,7 +11,7 @@ window.addEventListener('load', function() {
     // Scroll to the top of the page
     window.scrollTo(0, 0);
        if (this.innerWidth < 800) {
-
+          allowClick=false;
         links.forEach((e) => { e.classList.remove("active") })
     }
 });
@@ -37,7 +37,7 @@ MenuIcon.addEventListener("click", function() {
     };
 });
 // for CLICKING each link ( changing links style (color a before will appear) and changing my spans color (the 3 circle on the right))
-let allowClick = true;
+
 
 
 function redisign() {
@@ -47,7 +47,7 @@ function redisign() {
             links.forEach((link) => {
                 if (link !== e) {
                     link.classList.remove("active");
-                    scroll[i].style.backgroundColor = "white";
+                   
                 }
             });
 
@@ -57,7 +57,7 @@ function redisign() {
                     e.classList.add("active");
                 }
             }
-            scroll[i].style.backgroundColor = linkColor;
+    
 
 
         });
@@ -463,41 +463,13 @@ ScrollReveal().reveal('.chr', {
     easing: 'ease-out', // Easing function for the animation
 });
 
-//AUTO CHANGING COLOR  FOR MY SPANS (3 circles)
 
-/**************** changing spans colors each lvl of scrolly achieved ************/
 let home = document.querySelector(".homesection");
 let observer = document.querySelector(".obSection");
 let stat = document.querySelector(".StatSection");
 let cvs = document.querySelector(".Cvsection");
 
-let maxBlueScroll = parseFloat(getComputedStyle(home).getPropertyValue("height"));
-let maxPinkScroll = parseFloat(getComputedStyle(observer).getPropertyValue("height")) + maxBlueScroll + 300;
-let maxGreenScroll = parseFloat(getComputedStyle(stat).getPropertyValue("height")) + maxPinkScroll;
-let maxOrangeScroll = parseFloat(getComputedStyle(cvs).getPropertyValue("height")) + maxGreenScroll + 300;
-window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY;
 
-    if (scrollY <= maxBlueScroll) {
-        scroll.forEach((e) => { e.style.backgroundColor = "white"; });
-        // Change the background color of the appropriate span elements within the first scroll section
-        scroll[0].style.backgroundColor = "#5398FE";
-    } else if (scrollY > maxBlueScroll && scrollY <= maxPinkScroll) {
-        scroll.forEach((e) => { e.style.backgroundColor = "white"; });
-        // Change the background color of the appropriate span elements within the second scroll section
-        scroll[1].style.backgroundColor = "#F77FBE";
-    } else if (scrollY > maxGreenScroll) {
-        scroll.forEach((e) => { e.style.backgroundColor = "white"; });
-        // Change the background color of the appropriate span elements within the third scroll section
-        scroll[3].style.backgroundColor = "orange";
-
-    } else {
-        scroll.forEach((e) => { e.style.backgroundColor = "white"; });
-        // Change the background color of the appropriate span elements within the third scroll section
-        scroll[2].style.backgroundColor = "#63F27D";
-    }
-});
-/***********************************end of span coloring******** */
 
 /*************************Resizing the window will make my web fit with any widhth************************************** */
 window.onresize = function() {
@@ -512,7 +484,7 @@ window.onresize = function() {
 
 
         } else {
-            MenuIcon.style.display = "flex";
+               MenuIcon.style.display = "flex";
             if (side.classList.contains("active")) {
 
                 content.style.width = "calc(100vw - 80px)";
