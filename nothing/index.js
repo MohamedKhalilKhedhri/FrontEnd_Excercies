@@ -2,19 +2,18 @@ let MenuIcon = document.querySelector(".menuToggle");
 let links = document.querySelectorAll("aside ul .MenuList li:not(:last-child)");
 let content = document.querySelector(".mainbody");
 
-let allowClick = true;
-
-
-
-// Add this code in a script tag at the end of your HTML body or in an external JS file
+// stop my design ( my links coloration ) whene the device is a phone 
+let allowClick = true; // this variable used here and in my redisign() function  and resiz() function eto controle the design
 window.addEventListener('load', function() {
     // Scroll to the top of the page
     window.scrollTo(0, 0);
-       if (this.innerWidth < 800) {
-          allowClick=false;
+    if (this.innerWidth < 800) {
         links.forEach((e) => { e.classList.remove("active") })
+        allowClick = false;
     }
 });
+
+/********************************************************** */
 
 
 
@@ -36,8 +35,7 @@ MenuIcon.addEventListener("click", function() {
 
     };
 });
-// for CLICKING each link ( changing links style (color a before will appear) and changing my spans color (the 3 circle on the right))
-
+// for CLICKING each link ( changing links style (color a before will appear) only if its allowed to click (ur allowed to click whene u use a computer or larger screens)
 
 
 function redisign() {
@@ -47,24 +45,22 @@ function redisign() {
             links.forEach((link) => {
                 if (link !== e) {
                     link.classList.remove("active");
-                   
+
                 }
             });
-
-            const linkColor = getComputedStyle(e).getPropertyValue("--bg");
             if (allowClick) {
-                if (window.innerWidth > 800) {
-                    e.classList.add("active");
-                }
+
+                e.classList.add("active");
+
             }
-    
+
 
 
         });
     });
 }
-redisign();
 
+redisign()
 
 
 
@@ -464,14 +460,10 @@ ScrollReveal().reveal('.chr', {
 });
 
 
-let home = document.querySelector(".homesection");
-let observer = document.querySelector(".obSection");
-let stat = document.querySelector(".StatSection");
-let cvs = document.querySelector(".Cvsection");
-
-
 
 /*************************Resizing the window will make my web fit with any widhth************************************** */
+/* here i wanted my aside addpt with all width if ur using large screen u iwll get a normal aside with hover and click disign 
+/ else we will have a top nav without clicking design */
 window.onresize = function() {
         if (window.innerWidth < 800) {
             MenuIcon.style.display = "none";
@@ -483,8 +475,9 @@ window.onresize = function() {
             allowClick = false;
 
 
+
         } else {
-               MenuIcon.style.display = "flex";
+            MenuIcon.style.display = "flex";
             if (side.classList.contains("active")) {
 
                 content.style.width = "calc(100vw - 80px)";
@@ -496,13 +489,16 @@ window.onresize = function() {
                 content.style.marginLeft = "300px";
 
             };
+            links[0].classList.add("active");
             allowClick = true;
 
+
         }
+        redisign();
     }
     /***********************end of responsive  resizing********************** */
 
-// Get all the "View Cv" buttons and add a click event listener to each
+
 // Get all the "View Cv" buttons and add a click event listener to each
 const viewCvButtons = document.querySelectorAll('.showcv');
 const openphoto = document.querySelector('.openphoto');
