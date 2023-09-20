@@ -2,16 +2,24 @@ let MenuIcon = document.querySelector(".menuToggle");
 let links = document.querySelectorAll("aside ul .MenuList li:not(:last-child)");
 let content = document.querySelector(".mainbody");
 
+// design remover ( the active class)
+function removeD() {
+    links.forEach((e) => { e.classList.remove("active") })
+}
+
 // stop my design ( my links coloration ) whene the device is a phone 
 let allowClick = true; // this variable used here and in my redisign() function  and resiz() function eto controle the design
 window.addEventListener('load', function() {
     // Scroll to the top of the page
     window.scrollTo(0, 0);
     if (this.innerWidth < 800) {
-        links.forEach((e) => { e.classList.remove("active") })
+        removeD();
         allowClick = false;
     }
 });
+
+
+
 
 /********************************************************** */
 
@@ -471,7 +479,7 @@ window.onresize = function() {
             side.classList.remove('active');
             content.style.marginLeft = 0;
             content.style.width = "100vw";
-            links.forEach((e) => { e.classList.remove("active") })
+            removeD();
             allowClick = false;
 
 
@@ -489,7 +497,9 @@ window.onresize = function() {
                 content.style.marginLeft = "300px";
 
             };
+            removeD();
             links[0].classList.add("active");
+            this.scrollTo(0, 0);
             allowClick = true;
 
 
