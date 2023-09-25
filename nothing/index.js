@@ -138,9 +138,9 @@ ScrollReveal().reveal('.slider', {
 });
 ScrollReveal().reveal('.linkshead', {
     reset: true,
-    duration: 1000, // Animation duration in milliseconds
-    origin: 'top', // Reveal from the bottom
-    distance: '50px', // Distance to reveal
+    duration: 500, // Animation duration in milliseconds
+    origin: 'left', // Reveal from the bottom
+    distance: '20px', // Distance to reveal
     delay: 300, // Delay before the animation starts
     easing: 'ease-out', // Easing function for the animation
 });
@@ -156,27 +156,27 @@ ScrollReveal().reveal('.obcontent>div', {
 
 ScrollReveal().reveal('.dischead', {
     reset: true,
-    duration: 1000,
-    origin: 'top',
-    distance: '50px',
+     duration: 500, // Animation duration in milliseconds
+    origin: 'left', // Reveal from the bottom
+    distance: '20px',
     delay: 300,
     easing: 'ease-out',
 
 });
 ScrollReveal().reveal('.cvhead', {
     reset: true,
-    duration: 1000,
-    origin: 'top',
-    distance: '50px',
+    duration: 500, // Animation duration in milliseconds
+    origin: 'left', // Reveal from the bottom
+    distance: '20px',
     delay: 300,
     easing: 'ease-out',
 
 });
 ScrollReveal().reveal('.obhead', {
     reset: true,
-    duration: 1000,
-    origin: 'top',
-    distance: '50px',
+    duration: 500, // Animation duration in milliseconds
+    origin: 'left', // Reveal from the bottom
+    distance: '20px',
     delay: 300,
     easing: 'ease-out',
 
