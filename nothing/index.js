@@ -173,7 +173,6 @@ ScrollReveal().reveal('.cvhead', {
 
 });
 ScrollReveal().reveal('.obhead', {
- 
     duration: 500, // Animation duration in milliseconds
     origin: 'left', // Reveal from the bottom
     distance: '20px',
@@ -459,7 +458,7 @@ const stackedLine = new Chart(ccctx, {
 });
 
 ScrollReveal().reveal('.chr', {
-    reset: true,
+  
     interval: 200, // Animation duration in milliseconds
     origin: 'bottom', // Reveal from the bottom
     distance: '20px', // Distance to reveal
