@@ -189,6 +189,14 @@ ScrollReveal().reveal('.cvBlock', {
     easing: 'ease-out',
 
 });
+ScrollReveal().reveal('.chr', {
+  
+    interval: 200, // Animation duration in milliseconds
+    origin: 'bottom', // Reveal from the bottom
+    distance: '20px', // Distance to reveal
+    delay: 300, // Delay before the animation starts
+    easing: 'ease-out', // Easing function for the animation
+});
 
 
 //targetiing the heads to change colors of my h1 whene scroll in
@@ -457,14 +465,6 @@ const stackedLine = new Chart(ccctx, {
     }
 });
 
-ScrollReveal().reveal('.chr', {
-  
-    interval: 200, // Animation duration in milliseconds
-    origin: 'bottom', // Reveal from the bottom
-    distance: '20px', // Distance to reveal
-    delay: 300, // Delay before the animation starts
-    easing: 'ease-out', // Easing function for the animation
-});
 
 
 
