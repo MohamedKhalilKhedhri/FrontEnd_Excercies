@@ -190,7 +190,7 @@ ScrollReveal().reveal('.cvBlock', {
 
 });
 ScrollReveal().reveal('.chr', {
-  
+  reset:false,
     interval: 200, // Animation duration in milliseconds
     origin: 'bottom', // Reveal from the bottom
     distance: '20px', // Distance to reveal
