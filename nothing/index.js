@@ -121,7 +121,7 @@ function showslide(slideindex) {
 // end slider
 //start reveal animation
 ScrollReveal().reveal('.population div', {
-    reset: true,
+   
     interval: 200, // Animation duration in milliseconds
     origin: 'bottom', // Reveal from the bottom
     distance: '20px', // Distance to reveal
@@ -137,7 +137,7 @@ ScrollReveal().reveal('.slider', {
     easing: 'ease-out', // Easing function for the animation
 });
 ScrollReveal().reveal('.linkshead', {
-    reset: true,
+  
     duration: 500, // Animation duration in milliseconds
     origin: 'left', // Reveal from the bottom
     distance: '20px', // Distance to reveal
@@ -145,7 +145,7 @@ ScrollReveal().reveal('.linkshead', {
     easing: 'ease-out', // Easing function for the animation
 });
 ScrollReveal().reveal('.obcontent>div', {
-    reset: true,
+   
     interval: 200, // Animation duration in milliseconds
     origin: 'left',
     distance: '50px',
@@ -155,7 +155,7 @@ ScrollReveal().reveal('.obcontent>div', {
 });
 
 ScrollReveal().reveal('.dischead', {
-    reset: true,
+   
      duration: 500, // Animation duration in milliseconds
     origin: 'left', // Reveal from the bottom
     distance: '20px',
@@ -164,7 +164,7 @@ ScrollReveal().reveal('.dischead', {
 
 });
 ScrollReveal().reveal('.cvhead', {
-    reset: true,
+   
     duration: 500, // Animation duration in milliseconds
     origin: 'left', // Reveal from the bottom
     distance: '20px',
@@ -173,7 +173,7 @@ ScrollReveal().reveal('.cvhead', {
 
 });
 ScrollReveal().reveal('.obhead', {
-    reset: true,
+ 
     duration: 500, // Animation duration in milliseconds
     origin: 'left', // Reveal from the bottom
     distance: '20px',
